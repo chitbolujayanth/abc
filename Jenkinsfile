@@ -13,6 +13,18 @@ pipeline {
             }
         }
         
+        stage('SAST') {
+            steps {
+                withSonarQubeEnv('sonarqube')
+                {
+                    bat 'mvn sonar:sonar'
+                    
+                }
+         
+                
+            }
+        }
+        
         
     }
 }
